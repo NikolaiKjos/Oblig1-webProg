@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="JS.js"></script>
+</head>
+<body>
+<h1>Bestilling av kinobilleter</h1>
+<table>
+    <tr>
+        <td>
+            Velg film:
+        </td>
+        <td>
+            <label for="film"></label>
+            <select id="film" required>
+                <option value="" disabled selected>select a movie</option>
+                <option value="Biler">Biler</option>
+                <option value="Marvel">Marvel</option>
+                <option value="Barbi">Barbi</option>
+            </select>
+        </td>
+        <td>
+            <p id="feilFilm"></p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Antall:
+        </td>
+        <td>
+            <label for="antall"></label>
+            <select id="antall" required>
+                <option value="" disabled selected>0</option>
+                <option value=1>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </td>
+        <td>
+            <p id="feilantall"></p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fornavn
+        </td>
+        <td><label for="fornavn"></label><input type="text" id="fornavn"></td>
+        <td>
+            <p id="feilFornavn"></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Etternavn
+        </td>
+        <td>
+            <label for="etternavn"></label><input type="text" id="etternavn">
+        </td>
+        <td>
+            <p id="feilEtternavn"></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Telefon nummer
+        </td>
+        <td>
+            <label for="telefon"></label><input type="text" id="telefon">
+        </td>
+        <td>
+            <p id="feilTelefon"></p>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            E-post
+        </td>
+        <td>
+            <label for="epost"></label><input type="email" id="epost">
+        </td>
+        <td>
+            <p id="feilEpost"></p>
+        </td>
+    </tr>
+    <tr>
+        <td><button onclick="personalia()">Kjøp billetter</button></td>
+    </tr>
+</table>
+<h2>Kjøpte billetter</h2>
+<div id="billetter"></div>
+<button onclick="slett()">Slett alle billetter</button>
+</body>
+</html>
