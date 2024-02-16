@@ -26,7 +26,7 @@ function validerFilm(){
 function validerAntall() {
     const antall = document.getElementById("antall").value;
     const feilAntall = document.getElementById("feilAntall");
-    if(isNaN(antall) || antall <= 1){
+    if(isNaN(antall) || antall <= 0){
         feilAntall.textContent = "Velg et antall";
         return false;
     }else feilAntall.textContent = "";
