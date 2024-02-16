@@ -9,87 +9,97 @@ function visBilletter(){
         ut += "<td>"+b.film +"</td><td>"+b.antall +"</td><td>"+b.fornavn +"</td><td>"+b.etternavn +"</td><td>"+b.telefon +"</td><td>"+b.epost +"</td>";
         ut += "</tr>";
     }
+    ut += "</table>"
     document.getElementById("billetter").innerHTML=ut;
 }
-function personalia() {
 
-    const enBillett = {
-        film : document.getElementById("film").value,
-        antall : document.getElementById("antall").value,
-        fornavn : document.getElementById("fornavn").value,
-        etternavn : document.getElementById("etternavn").value,
-        telefon : document.getElementById("telefon").value,
-        epost : document.getElementById("epost").value
-    };
-    billetter.push(enBillett);
-    slettinput();
-    visBilletter();
-
+function validerFilm(){
     const film = document.getElementById("film").value;
-    const antall = document.getElementById("antall").value;
-    const fornavn = document.getElementById("fornavn").value;
-    const etternavn = document.getElementById("etternavn").value;
-    const telefon = document.getElementById("telefon").value;
-    const epost = document.getElementById("epost").value;
-
-    let feilFilm;
-    document.getElementById("feilFilm").innerHTML = feilFilm;
-    let feilantall
-    document.getElementById("feilAntall").value = feilantall;
-    const feilFornavn = document.getElementById("feilFornavn").value;
-    const feilEtternavn = document.getElementById("feilEtternavn").value;
-    const feilTelefon = document.getElementById("feilTelefon").value;
-    const feilEpost = document.getElementById("feilEpost").value;
-    const sjekkEpost = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-z]{2,}$/;
-
+    const feilFilm = document.getElementById("feilFilm");
     if (film === ""){
         feilFilm.textContent = "Velg en film";
-        slettinput();
-        return;
+        return false;
     }else feilFilm.textContent = "";
+    return true;
+}
 
-    if(isNaN(antall) || !Number.isInteger(Number(antall)) || Number(antall) === 0){
-        feilantall.textContent = "Velg et antall";
-        slettinput();
-        return;
-    }else feilantall.textContent = "";
+function validerAntall() {
+    const antall = document.getElementById("antall").value;
+    const feilAntall = document.getElementById("feilAntall");
+    if(isNaN(antall) || antall <= 1){
+        feilAntall.textContent = "Velg et antall";
+        return false;
+    }else feilAntall.textContent = "";
+    return true;
+}
 
-    if(typeof fornavn != "string" || fornavn.trim().length === 0 || /\d/.test(fornavn)){
+function validerFornavn() {
+    const fornavn = document.getElementById("fornavn").value.trim();
+    const feilFornavn = document.getElementById("feilFornavn");
+    if(fornavn.length === 0 || /\d/.test(fornavn)){
         feilFornavn.textContent = "Skriv inn et gyldig navn";
-        slettinput();
-        return;
-    }else  feilFornavn.textContent = "";
+        return false;
+    }else
+        feilFornavn.textContent = "";
+    return true;
+}
 
-    if(typeof etternavn != "string" || etternavn.trim().length === 0 || /\d/.test(etternavn)){
-        feilEtternavn.textContent = "Skriv inn et gyldig etternavn";
-        slettinput();
-        return;
+function validerEtternavn() {
+    const etternavn = document.getElementById("etternavn").value.trim();
+    const feilEtternavn = document.getElementById("feilEtternavn");
+    if(etternavn.length === 0 || /\d/.test(etternavn)){
+        feilEtternavn.textContent = "Skriv inn et gyldig navn";
+        return false;
     }else  feilEtternavn.textContent = "";
-
-    if(isNaN(telefon) || !Number.isInteger(Number(telefon)) || Number(antall) === 8){
+    return true;
+}
+function validerTelefon (){
+    const telefon = document.getElementById("telefon").value;
+    const feilTelefon = document.getElementById("feilTelefon");
+    if( isNaN(telefon) || telefon.length === 0){
         feilTelefon.textContent = "Skriv et gyldig telefonnummer";
-        slettinput();
-        return;
+        return false;
     }else feilTelefon.textContent = "";
+    return true;
+}
 
-    if(sjekkEpost.test(epost)){
+function validerEpost () {
+    const epost = document.getElementById("epost").value;
+    const feilEpost = document.getElementById("feilEpost");
+    const sjekkEpost = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-z]{2,}$/;
+    if(!sjekkEpost.test(epost)){
         feilEpost.textContent = "Skriv inn en gyldig E-post";
-        slettinput();
+        return false;
     }else  feilEpost.textContent = "";
-
-
-
+    return true;
 }
-function slettinput(){
-    document.getElementById("film").value = "";
-    document.getElementById("antall").value = "";
-    document.getElementById("fornavn").value = "";
-    document.getElementById("etternavn").value = "";
-    document.getElementById("telefon").value = "";
-    document.getElementById("epost").value = "";
+function kjøpBillet(){
+    console.log("Kjøp Bilett")
+    if(validerFilm()&&validerAntall()&&validerFornavn()&&validerEtternavn()&&validerTelefon()&&validerEpost()){
+        const nyBillett = {
+            film : document.getElementById("film").value,
+            antall : document.getElementById("antall").value,
+            fornavn : document.getElementById("fornavn").value,
+            etternavn : document.getElementById("etternavn").value,
+            telefon : document.getElementById("telefon").value,
+            epost : document.getElementById("epost").value
+        };
+        billetter.push(nyBillett);
+        slettInput();
+        visBilletter();
+    }
 }
 
-function slett(){
+function slettAlleBilletter(){
     billetter = [];
     visBilletter();
+}
+
+function slettInput(){
+    document.getElementById("film").value="";
+    document.getElementById("antall").value="";
+    document.getElementById("fornavn").value="";
+    document.getElementById("etternavn").value="";
+    document.getElementById("telefon").value="";
+    document.getElementById("epost").value="";
 }
