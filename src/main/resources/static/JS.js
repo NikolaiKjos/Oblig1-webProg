@@ -73,9 +73,10 @@ function validerEpost () {
     }else  feilEpost.textContent = "";
     return true;
 }
+
 function kjøpBillet(){
     console.log("Kjøp Bilett")
-    if(validerFilm()&&validerAntall()&&validerFornavn()&&validerEtternavn()&&validerTelefon()&&validerEpost()){
+    if(validerFilm()&validerAntall()&validerFornavn()&validerEtternavn()&validerTelefon()&validerEpost()){
         const nyBillett = {
             film : document.getElementById("film").value,
             antall : document.getElementById("antall").value,
