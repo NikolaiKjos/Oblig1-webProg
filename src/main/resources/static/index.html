@@ -6,15 +6,14 @@
     <script src="JS.js"></script>
 </head>
 <body>
-<h1>Bestilling av kinobilleter</h1>
+<h1>Bestilling av kinobilleter</h1> //Overskrift til siden
 <table>
     <tr>
         <td>
-            Velg film:
+            Velg film: //Tekst til rullmeny
         </td>
         <td>
-            <label for="film"></label>
-            <select id="film" required>
+            <select id="film" > //Her kaller jeg på film, og lager en rull meny med valg
                 <option value="" disabled selected>select a movie</option>
                 <option value="Biler">Biler</option>
                 <option value="Marvel">Marvel</option>
@@ -22,77 +21,60 @@
             </select>
         </td>
         <td>
-            <p id="feilFilm"></p>
+            <p id="feilFilm"  style="color:red"></p> //Her kaller jeg på errorfilm, vet det er feil å style i html men synes det er greit når er så lite som det er
         </td>
     </tr>
+    //Nedover er det sammen som blir gjort som i film
     <tr>
         <td>
             Antall:
         </td>
         <td>
-            <label for="antall"></label>
-            <select id="antall" required>
-                <option value="" disabled selected>0</option>
+            <select id="antall">
+                <option value="" disabled selected>Velg antall</option>
                 <option value=1>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
         </td>
         <td>
-            <p id="feilantall"></p>
+            <p id="feilAntall" style="color:red"></p>
         </td>
     </tr>
     <tr>
         <td>
             Fornavn
         </td>
-        <td><label for="fornavn"></label><input type="text" id="fornavn"></td>
-        <td>
-            <p id="feilFornavn"></p>
-        </td>
+        <td><input type="text" id="fornavn"></td>
+        <td><p id="feilFornavn"  style="color:red"></p></td>
     </tr>
-
     <tr>
         <td>
             Etternavn
         </td>
-        <td>
-            <label for="etternavn"></label><input type="text" id="etternavn">
-        </td>
-        <td>
-            <p id="feilEtternavn"></p>
-        </td>
+        <td><input type="text" id="etternavn"></td>
+        <td><p id="feilEtternavn" style="color:red"></p></td>
     </tr>
-
     <tr>
         <td>
             Telefon nummer
         </td>
-        <td>
-            <label for="telefon"></label><input type="text" id="telefon">
-        </td>
-        <td>
-            <p id="feilTelefon"></p>
-        </td>
+        <td><input type="text" id="telefon"></td>
+        <td><p id="feilTelefon" style="color:red"></p></td>
     </tr>
-
     <tr>
         <td>
             E-post
         </td>
-        <td>
-            <label for="epost"></label><input type="email" id="epost">
-        </td>
-        <td>
-            <p id="feilEpost"></p>
-        </td>
+        <td><input type="email" id="epost"></td>
+        <td><p id="feilEpost" style="color:red"></p></td>
     </tr>
     <tr>
-        <td><button onclick="personalia()">Kjøp billetter</button></td>
+        <td><button onclick="kjøpBillet()">Kjøp billetter</button></td> //Her lager jeg bryterren som gjør kjøp av billet mulig, og gjør at de blir lagt inn i arrayet
     </tr>
 </table>
 <h2>Kjøpte billetter</h2>
 <div id="billetter"></div>
-<button onclick="slett()">Slett alle billetter</button>
+<button onclick="slettAlleBilletter()">Slett alle billetter</button> //Her lager jeg bryteren som gjør sletting av kjøpte billeter og rensker arrayet
 </body>
 </html>
