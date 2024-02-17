@@ -6,14 +6,14 @@
     <script src="JS.js"></script>
 </head>
 <body>
-<h1>Bestilling av kinobilleter</h1> //Overskrift til siden
+<h1>Bestilling av kinobilleter</h1> <!--Overskrift til siden-->
 <table>
     <tr>
         <td>
-            Velg film: //Tekst til rullmeny
+            Velg film: <!--Tekst til rullmeny-->
         </td>
         <td>
-            <select id="film" > //Her kaller jeg på film, og lager en rull meny med valg
+            <select id="film" > <!--Her kaller jeg på film, og lager en rull meny med valg-->
                 <option value="" disabled selected>select a movie</option>
                 <option value="Biler">Biler</option>
                 <option value="Marvel">Marvel</option>
@@ -21,10 +21,10 @@
             </select>
         </td>
         <td>
-            <p id="feilFilm"  style="color:red"></p> //Her kaller jeg på errorfilm, vet det er feil å style i html men synes det er greit når er så lite som det er
+            <p id="feilFilm"  style="color:red"></p> <!--Her kaller jeg på errorfilm, vet det er feil å style i html men synes det er greit når er så lite som det er-->
         </td>
     </tr>
-    //Nedover er det sammen som blir gjort som i film
+    <!--Nedover er det sammen som blir gjort som i film-->
     <tr>
         <td>
             Antall:
@@ -70,11 +70,11 @@
         <td><p id="feilEpost" style="color:red"></p></td>
     </tr>
     <tr>
-        <td><button onclick="kjøpBillet()">Kjøp billetter</button></td> //Her lager jeg bryterren som gjør kjøp av billet mulig, og gjør at de blir lagt inn i arrayet
+        <td><button onclick="kjøpBillet()">Kjøp billetter</button></td> <!--Her lager jeg bryterren som gjør kjøp av billet mulig, og gjør at de blir lagt inn i arrayet-->
     </tr>
 </table>
 <h2>Kjøpte billetter</h2>
 <div id="billetter"></div>
-<button onclick="slettAlleBilletter()">Slett alle billetter</button> //Her lager jeg bryteren som gjør sletting av kjøpte billeter og rensker arrayet
+<button onclick="slettAlleBilletter()">Slett alle billetter</button> <!--Her lager jeg bryteren som gjør sletting av kjøpte billeter og rensker arrayet-->
 </body>
 </html>
